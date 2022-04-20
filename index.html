@@ -9,13 +9,23 @@
 <body>
   <script>
     function computerPlay() {
-      let rock = 0;
-      let paper = 1;
-      let scissor = 2;
-      return Math.random(Math.random(2));
+      let computerChoice = Math.floor((Math.random() * 3) + 1);
+      return computerChoice;
     }
 
-    console.log(computerPlay)
+    function jankenpon(playerSelection, computerSelection) {
+      let result;
+      if (playerSelection > computerSelection) {
+        result = "You Win! " + playerSelection + " beats " + computerSelection;
+      } else if (playerSelection < computerSelection) {
+        result = "You Lose! " + computerSelection + " beats " + playerSelection;
+      } else {
+        result = "It's a Draw " + playerSelection + " and " + computerSelection + " is the same";
+      }
+      return result;
+    }
+
+    console.log(jankenpon)
   </script>
 </body>
 </html>
