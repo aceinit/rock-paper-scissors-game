@@ -4,62 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="script2.js" defer></script>
+    <title>Rock Paper Scissors</title>
 </head>
 <body>
-  <script>
-    let playerWin;
-    let computerWin;
-    let gameCount;
-
-    function game() {
-      for (let i = 0; i < 5; i++) {
-      console.log(playRound());
-      }
-    }
-    
-    function computerPlay() {
-      let computerChoice = Math.floor((Math.random() * 3));
-
-      if (computerChoice == 0) {
-        return "rock";
-      } else if (computerChoice == 1) {
-        return "paper";
-      } else {
-        return "scissor";
-      }
-    }
-
-    function playRound(playerSelection, computerSelection) {
-
-      playerSelection = playerSelection.toLowerCase();
-      if (playerSelection == computerSelection) {
-        return "It's a Draw! " + playerSelection + " and " + computerSelection + " are the same";
-        gameCount = ++gameCount;
-      } else if (
-        (computerSelection == "rock" && playerSelection == "paper") || 
-        (computerSelection == "paper" && playerSelection == "scissor") || 
-        (computerSelection == "scissor" && playerSelection == "rock")
-       ) {
-        playerWin = ++playerWin;
-        gameCount = ++gameCount;
-        return "You Win! " + playerSelection + " beats " + computerSelection;
-        } else if (
-        (computerSelection == "rock" && playerSelection == "scissor") || 
-        (computerSelection == "paper" && playerSelection == "rock") || 
-        (computerSelection == "scissor" && playerSelection == "paper")
-       ) {
-        return "You Lose! " + computerSelection + " beats " + playerSelection;
-        computerWin = ++computerWin;
-        gameCount = ++gameCount;
-        }
-    }
-
-
-    const playerSelection = window.prompt("Rock, paper, or scissor?");
-    const computerSelection = computerPlay();
-
-
-  </script>
+  <div class="results"> 
+    <h1 class="ties">Ties: 0</h1>    
+  </div>
+  <div class="winnerDiv">
+    <h1 class="winner"></h1>
+    <button class="reset" onclick="resetGame()">Play Again?</button>
+  </div>
+  <div class="playerSection">
+    <h3 class="playerChoice"></h3>
+    <h3 class="playerScore">Score: 0</h3>
+    <div class="playerButtons">
+        <button class="selection" id="rock">Rock</button>
+        <button class="selection" id="paper">Paper</button>
+        <button class="selection" id="scissor">Scissor</button>
+    </div>
+  </div>
 </body>
 </html>
